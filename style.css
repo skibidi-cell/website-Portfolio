@@ -5,10 +5,11 @@
 
 .main{
     width: 100%;
-    background: url(images/background-2.jpg);
+    background: url(images/background-1.jpg);
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    background-attachment: fixed; 
+    min-height: 100vh;            
     position: relative;
     font-family: sans-serif;
 }
@@ -133,7 +134,8 @@ ul li a:hover{
     font-size: 16px;
     letter-spacing: 1px;
     line-height: 24px;
-    text-decoration: bold;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 /* Style the numbers */
@@ -161,12 +163,18 @@ ul li a:hover{
 
 .contact-section h1{
     font-size: 40px;
+    color: rgb(228, 225, 224);
+}
+
+.contact-section span{
     color: rgb(230, 104,59);
 }
 
 .contact-section p{
     margin-top: 10px;
     margin-bottom: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 /* Table Form */
@@ -211,11 +219,373 @@ ul li a:hover{
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    margin: auto;
+    margin: 0%;
     border: 5px rgb(230, 104,59);
 }
 
-.contact-section .icons{
-    position: relative;
-    right: -8;
+
+@media (max-width: 768px){
+    .contact-section{
+        margin-left: 0;
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-table input,
+    .contact-table textarea{
+        width: 100%;
+    }
+
+    .contact-section form{
+        width: 100%;
+        justify-content: left;
+    }
+    
 }
+
+.contact-table{
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.contact-table input:invalid,
+.contact-table textarea:invalid{
+    border: 2px solid rgb(230, 104,59);
+}
+
+.contact-table input:valid,
+.contact-table textarea:valid{
+    border: 2px solid rgb(59,174,209);
+}
+
+/* Floating Contact Messages */
+.floating-contact {
+    position: absolute;
+    top: 50%;
+    right: -7%; 
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    font-display: swap;
+}
+
+.floating-message {
+    background: linear-gradient(135deg, rgb(230,104,59), rgb(59,174,209));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease;
+    
+    /* floating animation */
+    animation: floatMessage 3s ease-in-out infinite;
+}
+
+/* Different delay for each message for staggered floating */
+.floating-message.email {
+    animation-delay: 0s;
+}
+
+.floating-message.phone {
+    animation-delay: 1s;
+}
+
+/* Floating keyframes */
+@keyframes floatMessage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); } 
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive for mobile */
+@media(max-width: 768px){
+    .floating-contact {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+}
+
+/* Skills Page Styling */
+.skills-section{
+    margin-left: 7%;
+    margin-top: 6%;
+    color: #f4f4f4;
+    text-align: center;
+}
+
+.skills-section h1{
+    font-size: 40px;
+    color: rgb(228, 225, 224);
+    margin-bottom: 15px;
+}
+
+.skills-section span{
+    color: rgb(230, 104,59);
+}
+
+.skills-section p{
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+
+/* Container for all skill cards */
+.skills-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Individual skill card */
+.skill-card{
+    background: linear-gradient(135deg, rgb(230,104,59), rgb(59,174,209));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Skill card heading */
+.skill-card h3{
+    color: rgb(230, 104,59);
+    margin-bottom: 15px;
+}
+
+/* Skill bar container */
+.skill-bar{
+    background: rgba(255,255,255,0.2);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+/* Skill bar fill / level */
+.skill-level{
+    background: rgb(59,174,209);
+    padding: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 0;
+    animation: fillSkill 1.5s forwards;
+}
+
+/* Animation for skill bars */
+@keyframes fillSkill{
+    to { width: inherit; }
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .skills-container{
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+/* Skills icons */
+.skills-icons {
+    margin-top: 30px;          
+    justify-content: center;   
+    gap: 20px;                  
+}
+
+.skills-icons a {
+    color: #f4f4f4;
+    font-size: 40px;
+    transition: 0.4s ease;
+}
+
+.skills-icons a:hover {
+    color: rgb(59,174,209);     
+}
+
+@media (max-width: 768px){
+    .skills-icons {
+        gap: 15px;
+    }
+}
+
+/* Works Section Styling */
+.works-section{
+    margin-left: 7%;
+    margin-top: 6%;
+    color: #f4f4f4;
+    text-align: center;
+}
+
+.works-section h1{
+    font-size: 40px;
+    color: rgb(228, 225, 224);
+    margin-bottom: 15px;
+    top: 30px;
+}
+
+.works-section span{
+    color: rgb(230, 104,59);
+}
+
+.works-section p{
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+/* Container for project cards */
+.works-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Individual project card */
+.work-card{
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.work-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* Project image */
+.work-card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Project info */
+.work-info{
+    padding: 15px;
+    text-align: center;
+}
+
+.work-info h3{
+    color: rgb(230,104,59);
+    margin-bottom: 8px;
+}
+
+.work-info p{
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.work-info a{
+    text-decoration: none;
+    color: #f4f4f4;
+    background: rgb(230,104,59);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.4s ease;
+    display: inline-block;
+}
+
+.work-info a:hover{
+    background: rgb(59,174,209);
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .works-container{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .work-card{
+        width: 90%;
+    }
+}
+
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); } /* move up 15px */
+    100% { transform: translateY(0px); }
+  }
+
+  .work-card {
+    /* existing styles */
+    background: linear-gradient(135deg, rgb(230,104,59), rgb(59,174,209));
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* NEW: floating animation */
+    animation: float 3s ease-in-out infinite; /* 3s duration */
+}
+
+.works-container .work-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.works-container .work-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.works-container .work-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;         
+    bottom: 10px;            
+    left: 10px;              
+    color: #f4f4f4;         
+    font-size: 14px;
+    font-family: sans-serif;
+    background: rgba(0,0,0,0.2);  
+    padding: 5px 10px;
+    border-radius: 6px;
+    z-index: 100;            
+}
+
+
+
+
+
+
+
+
