@@ -14,6 +14,7 @@
     font-family: sans-serif;
 }
 
+/* navigation styling */
 .navbar{
     width:86%;
     display: flex;
@@ -53,6 +54,7 @@ ul li a:hover{
     color: rgb(59,174,209);
 }
 
+/* main information styling*/
 .info{
     margin-left: 7%;
     margin-top: 6%;
@@ -89,6 +91,7 @@ ul li a:hover{
     background: rgb(59,174,209);
 }
 
+/* profile styling */
 .image{
     width: 50%;
     height: 80%;
@@ -110,6 +113,7 @@ ul li a:hover{
     left: 55%;
 }
 
+/* icons styling */
 .icons ion-icon{
     margin-left: 7%;
     color: #f4f4f4;
@@ -123,6 +127,14 @@ ul li a:hover{
 
 }
 
+@media (max-width: 768px){
+    .icons ion-icon{
+        margin-left: 7%;
+    }
+}
+
+
+/* about page styling */
 .info ol{
     margin-left: 60px;
     margin-top: 12px;
