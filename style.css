@@ -3,51 +3,108 @@
     padding:0;
 }
 
-.main{
-    width: 100%;
+body{
     background: url(images/background-1.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed; 
+}
+
+.main{
+    width: 100%;
     min-height: 100vh;            
     position: relative;
     font-family: sans-serif;
 }
 
 /* navigation styling */
-.navbar{
-    width:86%;
-    display: flex;
-    margin: auto;
-    padding: 15px 0;
-    align-items: center;
-    justify-content: space-between ;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(240, 90, 21, 0.842), rgba(0, 200, 255, 0.3));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 25px;
+  margin: 2rem auto 1rem;
+  color: white;
+  width: 90%;
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  /* Animation: Fade in on load */
+  opacity: 3;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
-.navbar .logo{
-    width: 160px;
-    cursor: pointer;
-    margin-top: -1%;
-    margin-left: -2%;
+.navbar .logo {
+  flex-shrink: 0;
+  /* Animation: Slide in from left */
+  transform: translateX(-100%);
+  animation: slideInLeft 0.8s ease-out 0.2s forwards;
 }
 
-ul{
-    margin-top: -4%;
+.navbar img{
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease; /* Smooth hover scale */
 }
 
-ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 10px 16px;
+.navbar img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
-ul li a{
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    color: rgb(230, 104,59);
-    margin-top: -3%;
-    transition: .4s ease;
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  /* Animation: Slide in from right */
+  transform: translateX(100%);
+  animation: slideInRight 0.8s ease-out 0.4s forwards;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #f0a500; /* Underline color */
+  transition: width 0.3s ease; /* Animate underline expansion */
+}
+
+.nav-links li a:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+  }
 }
 
 ul li a:hover{
@@ -88,7 +145,7 @@ ul li a:hover{
 }
 
 .info a:hover{
-    background: rgb(59,174,209);
+    background: linear-gradient(135deg, rgba(240, 90, 21, 0.842), rgba(0, 200, 255, 0.3));
 }
 
 /* profile styling */
@@ -103,7 +160,7 @@ ul li a:hover{
 .image img{
     position: absolute;
     height: 560px;
-    left:84%;
+    left:89%;
     transform: translate(-55%);
     bottom: 0;
     transition: left 2s ease;
@@ -279,7 +336,7 @@ ul li a:hover{
 .floating-contact {
     position: absolute;
     top: 50%;
-    right: -7%; 
+    right: -10%; 
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
